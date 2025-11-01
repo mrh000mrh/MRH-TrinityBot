@@ -29,3 +29,14 @@ class Config:
         
         conn.commit()
         conn.close()
+
+def setup_admin(admin_id):
+    """تنظیم آی‌دی ادمین اصلی"""
+    from settings_manager import SettingsManager  # اینجا ایمپورت میکنیم
+    settings = SettingsManager()
+    settings.set_setting('admin_id', str(admin_id))
+    settings.close()
+    print(f"✅ ادمین اصلی تنظیم شد: {admin_id}")
+
+# برای اولین بار، آی‌دی خودتون رو تنظیم کنید
+# setup_admin(123456789)  # آی‌دی عددی خودتون - این خط رو بعداً فعال میکنیم
